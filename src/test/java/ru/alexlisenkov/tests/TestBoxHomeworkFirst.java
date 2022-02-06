@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class TestBoxHomework {
+public class TestBoxHomeworkFirst {
 
     @BeforeAll
     static void beforeAll() {
