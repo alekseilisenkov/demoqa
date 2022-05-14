@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TestBoxTest {
+public class RegistrationFormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.startMaximized = true;
