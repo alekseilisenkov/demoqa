@@ -17,7 +17,7 @@ public class RegistrationFormTest {
     }
 
     @Test
-    void myFirstTest(){
+    void myFirstTest() {
         open("/automation-practice-form");
         $("#firstName").setValue("Alexei");
         $("#lastName").setValue("Lisenkov");
