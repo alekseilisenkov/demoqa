@@ -1,7 +1,5 @@
 package ru.alexlisenkov.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.alexlisenkov.pages.RegistrationPage;
 
@@ -9,10 +7,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.alexlisenkov.tests.TestData.firstName;
-import static ru.alexlisenkov.tests.TestData.lastName;
 
-public class RegistrationFormRefactor extends TestBase {
+public class RegistrationFormWithPageObjects extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
