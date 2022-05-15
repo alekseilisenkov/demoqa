@@ -3,6 +3,7 @@ package ru.alexlisenkov.tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.alexlisenkov.pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -12,25 +13,23 @@ import static ru.alexlisenkov.tests.TestData.firstName;
 import static ru.alexlisenkov.tests.TestData.lastName;
 
 public class RegistrationFormRefactor extends TestBase {
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void myFirstTest() {
-        open("/automation-practice-form");
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue("alexlis@mail.ru");
+        registrationPage.openPage();
+        registrationPage.typeFirstName("Alexei");
+        registrationPage.typeLastName("Lisenkov");
+        registrationPage.typeEmail("alexlis@mail.ru");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8999666555");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("February");
-        $(".react-datepicker__year-select").selectOption("2022");
-        $(".react-datepicker__day--006:not(.react-datepicker__day--outside-month)").click();
+        registrationPage.selectCalendar.setDate("15", "July", "2022");
         $("#subjectsInput").setValue("Physics").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
-        $("#currentAddress").setValue("Saint-Petersburg");
+        registrationPage.typeAddress("Saint-Petersburg");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
@@ -38,6 +37,7 @@ public class RegistrationFormRefactor extends TestBase {
         $("#submit").click();
 
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(firstName + " " + lastName), text("alexlis@mail.ru"), text("Male"), text("8999666555"), text("Saint-Petersburg"), text("NCR Delhi"));
+        $(".table-responsive").shouldHave(text("Alexei Lisenkov"), text("alexlis@mail.ru"), text("Male"), text("8999666555"),
+                text("Saint-Petersburg"), text("NCR Delhi"));
     }
 }

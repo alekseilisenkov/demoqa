@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationFormTest {
     @BeforeAll
     static void beforeAll() {
-        Configuration.startMaximized = true;
+        Configuration.browserSize = "3840x2400";
         Configuration.baseUrl = "https://demoqa.com";
     }
 
