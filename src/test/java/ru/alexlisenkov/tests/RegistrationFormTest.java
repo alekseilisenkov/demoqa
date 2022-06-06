@@ -39,6 +39,7 @@ public class RegistrationFormTest {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alexei Lisenkov"), text("alexlis@mail.ru"), text("Male"), text("8999666555"),
                 text("Saint-Petersburg"), text("NCR Delhi"));

@@ -17,23 +17,20 @@ public class RegistrationFormWithPageObjects extends TestBase {
         registrationPage.typeFirstName("Alexei");
         registrationPage.typeLastName("Lisenkov");
         registrationPage.typeEmail("alexlis@mail.ru");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("8999666555");
+        registrationPage.chooseGender("Male");
+        registrationPage.choosePhone("8999666555");
         registrationPage.selectCalendar.setDate("15", "July", "2022");
-        $("#subjectsInput").setValue("Physics").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        registrationPage.chooseSience("Physics");
+        registrationPage.chooseHobbies("Sports");
+        registrationPage.chooseHobbies("Music");
+        registrationPage.chooseHobbies("Reading");
+        registrationPage.uploadPicture("img/1.png");
         registrationPage.typeAddress("Saint-Petersburg");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
+        registrationPage.stateComponent.setState("NCR");
+        registrationPage.cityComponent.setCity("Delhi");
+        registrationPage.clickButton();
 
-        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alexei Lisenkov"), text("alexlis@mail.ru"), text("Male"), text("8999666555"),
-                text("Saint-Petersburg"), text("NCR Delhi"));
+        registrationPage.finalAssert();
+        registrationPage.finalAssertOfTable();
     }
 }

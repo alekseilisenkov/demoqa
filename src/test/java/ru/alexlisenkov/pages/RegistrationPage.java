@@ -22,7 +22,9 @@ public class RegistrationPage {
             inputPhone = $("#userNumber"),
             inputSience = $("#subjectsInput"),
             uploadPicturepath = $("#uploadPicture"),
-            clickPath = $("#submit");
+            clickPath = $("#submit"),
+            assertPage = $(".modal-title"),
+            assertTable = $(".table-responsive");
 
 
     private final String FORM_TITLE = "Student Registration Form";
@@ -73,5 +75,14 @@ public class RegistrationPage {
 
     public void clickButton() {
         clickPath.click();
+    }
+
+    public void finalAssert() {
+        assertPage.shouldHave(text("Thanks for submitting the form"));
+    }
+
+    public void finalAssertOfTable() {
+        assertTable.shouldHave(text("Alexei Lisenkov"), text("alexlis@mail.ru"), text("Male"), text("8999666555"),
+                text("Saint-Petersburg"), text("NCR Delhi"));
     }
 }
