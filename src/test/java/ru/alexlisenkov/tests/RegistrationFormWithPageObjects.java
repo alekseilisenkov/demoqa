@@ -14,18 +14,18 @@ public class RegistrationFormWithPageObjects extends TestBase {
     @Test
     void myFirstTest() {
         registrationPage.openPage();
-        registrationPage.typeFirstName("Alexei");
-        registrationPage.typeLastName("Lisenkov");
-        registrationPage.typeEmail("alexlis@mail.ru");
-        registrationPage.chooseGender("Male");
-        registrationPage.choosePhone("8999666555");
+        registrationPage.typeFirstName("Alexei")
+                .typeLastName("Lisenkov")
+                .typeEmail("alexlis@mail.ru")
+                .chooseGender("Male")
+                .choosePhone("8999666555");
         registrationPage.selectCalendar.setDate("15", "July", "2022");
-        registrationPage.chooseSience("Physics");
-        registrationPage.chooseHobbies("Sports");
-        registrationPage.chooseHobbies("Music");
-        registrationPage.chooseHobbies("Reading");
-        registrationPage.uploadPicture("img/1.png");
-        registrationPage.typeAddress("Saint-Petersburg");
+        registrationPage.chooseSience("Physics")
+                .chooseHobbies("Sports")
+                .chooseHobbies("Music")
+                .chooseHobbies("Reading")
+                .uploadPicture("img/1.png")
+                .typeAddress("Saint-Petersburg");
         registrationPage.stateComponent.setState("NCR");
         registrationPage.cityComponent.setCity("Delhi");
         registrationPage.clickButton();

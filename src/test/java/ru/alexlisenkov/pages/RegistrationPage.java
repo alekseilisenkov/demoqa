@@ -11,6 +11,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
+    private final String FORM_TITLE = "Student Registration Form";
+    public CalendarComponent selectCalendar = new CalendarComponent();
+    public StateComponent stateComponent = new StateComponent();
+    public CityComponent cityComponent = new CityComponent();
+
     private SelenideElement
             formTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
@@ -27,54 +32,59 @@ public class RegistrationPage {
             assertTable = $(".table-responsive");
 
 
-    private final String FORM_TITLE = "Student Registration Form";
-    public CalendarComponent selectCalendar = new CalendarComponent();
-    public StateComponent stateComponent = new StateComponent();
-    public CityComponent cityComponent = new CityComponent();
-
     public void openPage() {
         open("/automation-practice-form");
         formTitle.shouldHave(text(FORM_TITLE));
     }
 
-    public void typeFirstName(String value) {
+    public RegistrationPage typeFirstName(String value) {
         firstNameInput.setValue(value);
+        return this;
     }
 
-    public void typeLastName(String value) {
+    public RegistrationPage typeLastName(String value) {
         lastNameInput.setValue(value);
+        return this;
     }
 
-    public void typeEmail(String value) {
+    public RegistrationPage typeEmail(String value) {
         emailInput.setValue(value);
+        return this;
     }
 
-    public void typeAddress(String value) {
+    public RegistrationPage typeAddress(String value) {
         currentAddress.setValue(value);
+        return this;
     }
 
-    public void chooseGender(String value) {
+    public RegistrationPage chooseGender(String value) {
         genderButton.$(byText(value)).click();
+        return this;
     }
 
-    public void chooseHobbies(String value) {
+    public RegistrationPage chooseHobbies(String value) {
         hobbiesButton.$(byText(value)).click();
+        return this;
     }
 
-    public void choosePhone(String value) {
+    public RegistrationPage choosePhone(String value) {
         inputPhone.setValue(value).click();
+        return this;
     }
 
-    public void chooseSience(String value) {
+    public RegistrationPage chooseSience(String value) {
         inputSience.setValue(value).pressEnter();
+        return this;
     }
 
-    public void uploadPicture(String value) {
+    public RegistrationPage uploadPicture(String value) {
         uploadPicturepath.uploadFromClasspath(value);
+        return this;
     }
 
-    public void clickButton() {
+    public RegistrationPage clickButton() {
         clickPath.click();
+        return this;
     }
 
     public void finalAssert() {
