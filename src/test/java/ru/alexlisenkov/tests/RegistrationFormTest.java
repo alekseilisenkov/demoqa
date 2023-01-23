@@ -8,7 +8,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTest {
+public class RegistrationFormTest extends TestBase {
+
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "3840x2400";

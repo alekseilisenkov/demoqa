@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import ru.alexlisenkov.pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationFormRefactorWithFaker extends TestBase {

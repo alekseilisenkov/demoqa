@@ -1,10 +1,9 @@
-
 package ru.alexlisenkov.utils;
 
-        import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
-        import java.util.Random;
-        import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
@@ -16,7 +15,6 @@ public class RandomUtils {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             result.append(SALTCHARS.charAt(index));
         }
-
         return result.toString();
     }
 
@@ -33,21 +31,18 @@ public class RandomUtils {
         StringBuilder message = new StringBuilder();
         int messageLength = getRandomInt(min, max);
         while (message.length() < messageLength) {
-            int wordIndex = getRandomInt(0, words.length -1);
+            int wordIndex = getRandomInt(0, words.length - 1);
             message.append(words[wordIndex] + " ");
         }
-
         String readyMessage = StringUtils.capitalize(message.toString())
                 .replace("  ", " ")
                 .replace(" ,", ",")
                 .replace(" .", ".").trim();
-
         return readyMessage;
     }
 
     public static int getRandomInt(int min, int max) {
         Random r = new Random();
-
         return r.nextInt((max - min) + 1) + min;
     }
 
@@ -69,8 +64,6 @@ public class RandomUtils {
 
     public static String getRandomEmail() {
         String emailDomain = "@qa.guru";
-
         return getRandomString(10) + emailDomain;
     }
-
 }
